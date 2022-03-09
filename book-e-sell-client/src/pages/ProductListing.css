@@ -1,0 +1,169 @@
+.product-info-wrapper {
+    display: flex;
+    margin-bottom: 45px;
+}
+
+.product-info-left {
+    flex: 5;
+    align-self: center;
+}
+
+.product-info-right {
+    flex: 5;
+    text-align: end;
+}
+
+.itemCount {
+    color: #414141;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.filter-btn {
+    background-color: white;
+    border: 2px solid #949494;
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 18px;
+    text-align: left;
+    padding-left: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.filter-text {
+    font-size: 20px;
+    flex: 2;
+    padding-left: 10px;
+}
+
+.filter-downArrow {
+    flex: 1;
+    text-align: end;
+    color: #949494;
+    padding-left: 20px;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.product-wrapper {
+    border-radius: 5px;
+    border: 1px solid #b8b8b8;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.product-Img-wrapper {
+    width: 250px;
+    height: 200px;
+    background-image: linear-gradient(to bottom, #ffffff, #efefef, #e0dfdf, #d1cfcf, #c2bfbf);
+}
+
+.product-listing-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+}
+
+.productTitle {
+    margin-bottom: 5px;
+    color: #414141;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.authorName {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.price {
+    font-size: 20px;
+}
+
+.mrp {
+    color: #838383;
+    padding-right: 5px;
+}
+
+.realPrice {
+    color: #838383;
+}
+
+.disscount {
+    color: #80bf32;
+    font-weight: 600;
+    padding-left: 5px;
+}
+
+.payvalue {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.addtocartbtn {
+    background-color: #f14d54;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    align-self: center;
+}
+
+.pagination-navbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+}
+
+.disabled {
+    color: #b8b8b8;
+}
+
+.arrow {
+    font-size: 15px;
+}
+
+.page-item {
+    display: inline;
+    font-size: 20px;
+    padding: 0px 10px;
+    color: #414141;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.current {
+    height: 25px;
+    width: 25px;
+    background-color: #f14d54;
+    color: white;
+    padding: 5px;
+    border-radius: 50px;
+    text-align: center;
+}

@@ -1,0 +1,63 @@
+.register-details-wrapper {
+    width: 70%;
+    margin: auto;
+}
+
+.r-hr {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.desc {
+    color: #838383;
+    font-size: small;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.name {
+    display: flex;
+}
+
+.name-left {
+    flex: 4;
+}
+
+.name-right {
+    flex: 4;
+}
+
+.r-label {
+    margin-bottom: 15px;
+}
+
+.r-inputfield {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 30px;
+    height: 30px;
+}
+
+.password {
+    display: flex;
+}
+
+.pass-left {
+    flex: 5;
+}
+
+.pass-right {
+    flex: 5;
+}
+
+.registerbtn {
+    background-color: #f14d54;
+    width: 100px;
+    height: 45px;
+    border: none;
+    color: white;
+    font-size: large;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}

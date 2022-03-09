@@ -1,0 +1,89 @@
+.product-page-info-wrapper {
+    text-align: end;
+    margin-bottom: 45px;
+}
+
+.product-page-searchbar {
+    width: 300px;
+    height: 40px;
+    padding-left: 20px;
+    font-style: italic;
+    border: 1px solid #949494;
+}
+
+.add-product-btn {
+    text-align: center;
+    background-color: #f14d54;
+    height: 44px;
+    width: 150px;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+    margin: 0;
+    margin-left: 10px;
+}
+
+
+/*  Table */
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid #949494;
+}
+
+table thead th {
+    border-bottom: 1px solid #949494;
+}
+
+.product-table {
+    width: 100%;
+}
+
+th {
+    font-size: 16px;
+    padding: 16px;
+    text-align: start;
+}
+
+td {
+    font-size: 16px;
+    padding: 16px;
+    text-align: start;
+}
+
+.btn-list {
+    text-align: end;
+}
+
+.editbtn {
+    padding-left: 20px;
+    color: #80BF32;
+    cursor: pointer;
+}
+
+.deletebtn {
+    padding-left: 20px;
+    color: #f14d54;
+    cursor: pointer;
+}
+
+.product-table-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 28px 0px;
+    color: #4d4d4d;
+}
+
+.selectionBox {
+    padding: 10px;
+    text-align: center;
+    margin-right: 20px;
+    font-size: 16px;
+}

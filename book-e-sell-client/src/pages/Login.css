@@ -1,0 +1,78 @@
+.box {
+    display: flex;
+    width: 70%;
+    margin: auto;
+}
+
+.left {
+    flex: 5;
+}
+
+.title {
+    font-size: 25px;
+    color: #414141;
+    margin-bottom: 20px;
+}
+
+.hr {
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    color: #838383;
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.listItems {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+.listItem {
+    margin-bottom: 15px;
+    font-size: larger;
+}
+
+.createAccountBtn {
+    width: 220px;
+    height: 45px;
+    margin-top: 127px;
+    background-color: #f14d54;
+    /* border-radius: 5px; */
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+}
+
+.right {
+    flex: 5;
+}
+
+.inputlabel {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.inputfield {
+    display: block;
+    margin-bottom: 30px;
+    width: 50%;
+    height: 30px;
+}
+
+.loginbtn {
+    background-color: #f14d54;
+    width: 100px;
+    height: 45px;
+    border: none;
+    color: white;
+    margin-top: 50px;
+    font-size: large;
+    padding: 10px;
+    cursor: pointer;
+}
