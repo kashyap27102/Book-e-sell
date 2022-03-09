@@ -1,2 +1,2 @@
-./book-e-sell-client/node_modules/
-./book-e-sell-server/node_modules/
+./book-e-sell-client/node_modules/*
+./book-e-sell-server/node_modules/*
