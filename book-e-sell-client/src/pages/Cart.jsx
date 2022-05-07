@@ -1,24 +1,45 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Cart.css'
 import Topbar from '../components/Topbar'
 import CartProduct from '../components/CartProduct';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllOrder } from '../Store/actions';
 function Cart() {
+    const orders = useSelector(state=>state.cart.orders);
+    const totalItem = useSelector(state=>state.cart.totalItem);
+    const dispatch = useDispatch();
+
+    // const updateQuantity = (quantity,id)=>{
+    //     const data = {
+    //         quantity : quantity
+    //     }
+    //     axios.put(`/orders/${id}`,data);
+    // }
+
+    useEffect(()=>{
+        dispatch(getAllOrder());
+    },[dispatch])
     return (
         <>
-            <Topbar user='kashyap' />
+            <Topbar/>
             <div className="container">
                 <h2 className="pageTitle">Cart</h2>
                 <div className="cart-details-wrapper">
                     <div className="cart-details-left">
-                        <p style={{ paddingRight: '10px' }}>My Shopping Bag</p><span>(3 items)</span>
+                        <p style={{ paddingRight: '10px' }}>My Shopping Bag</p><span>({totalItem} items)</span>
                     </div>
                     <div className="cart-details-right">
                         <span>Total price: </span><span>1500</span>
                     </div>
                 </div>
                 <div className="cart-items-wrapper">
-                    <CartProduct/>
-                    <CartProduct/>
+                    {
+                        orders.map(order=>(
+                            <CartProduct key={order._id} order={order}/>
+                        ))
+                    }
+                    {/* <CartProduct/>
+                    <CartProduct/> */}
                     {/* <div className="cart-item">
                         <div className="product-img-wrapper">
                             <img src="" alt="" className='product-img' />

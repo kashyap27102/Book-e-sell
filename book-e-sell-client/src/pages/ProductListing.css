@@ -55,6 +55,7 @@
 }
 
 .product-wrapper {
+    width: 250px;
     border-radius: 5px;
     border: 1px solid #b8b8b8;
     margin-bottom: 30px;
@@ -81,9 +82,9 @@
 
 .productTitle {
     margin-bottom: 5px;
-    color: #414141;
-    font-size: 25px;
-    font-weight: 500;
+    color: #181818;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .authorName {

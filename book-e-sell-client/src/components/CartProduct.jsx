@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useState } from 'react';
-function CartProduct() {
-
-    var [count,setCount] = useState(1);
+import axios from 'axios';
+function CartProduct({order}) {
+    console.log(order); 
     const incrementProduct = ()=>{
-        setCount(count+1);
+        const quantity = order.order.quantity + 1
+        // updateQuantity(quantity,order.order._id);
     }
     const decrementProduct = ()=>{
-        count==1 ? count : setCount(count-1);
+        const quantity = order.order.quantity - 1
+        // updateQuantity(quantity,order.order._id);
     }
     return (
         <div className="cart-item">
@@ -17,11 +18,11 @@ function CartProduct() {
             </div>
             <div className="product-deatails-wrapper">
                 <div className="product-deatails-wrapper-left">
-                    <h4 className="product-title">Campus Sutra</h4>
+                    <h4 className="product-title">Title</h4>
                     <p className='product-desc'>cart item name</p>
                     <div className="product-quantity-wrapper">
                         <span onClick={incrementProduct} className='inc-quantity'>+</span>
-                        <span className='product-quantity-count'>{count}</span>
+                        <span className='product-quantity-count'>1</span>
                         <span onClick={decrementProduct} className='dec-quantity'>-</span>
                     </div>
                 </div>

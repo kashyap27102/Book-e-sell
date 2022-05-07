@@ -41,23 +41,22 @@ router.post('/', async(req, res, next) => {
             const order = new Order({
                 _id: mongoose.Types.ObjectId(),
                 quantity: req.body.quantity,
-                book: req.body.productId
+                product: req.body.productId
             });
             order.save();
         })
         .then(result => {
             console.log(result);
             res.status(200).json({
-                    message: "order added sucessfully",
-                    request: {
-                        type: "POST",
-                        url: "https://localhost:8000/orders"
-                    },
-                })
-                .catch(err => {
-                    console.log(err);
-                    res.json(500).json(err);
-                })
+                message: "order added sucessfully",
+                request: {
+                    type: "POST",
+                    url: "https://localhost:8000/orders"
+                },
+            })
+        }).catch(err => {
+            console.log(err);
+            res.json(500).json(err);
         })
 })
 

@@ -26,6 +26,11 @@ app.use('/orders', orderRoute);
 app.use('/users', userRoute);
 app.use('/auth', authRoute);
 
+app.get("/post", (req, res) => {
+    console.log("Connected to React");
+    res.redirect("/");
+});
+
 // HANDLING ERROR 
 app.use((req, res, next) => {
     const error = new Error('Not Found');
