@@ -28,7 +28,7 @@ router.get('/:id', async(req, res, next) => {
     })
 })
 
-// VIEW ALL USER
+// VIEW ALL USERS
 router.get('/', async(req, res, next) => {
     User.find({}).then(users => {
         res.status(200).json({

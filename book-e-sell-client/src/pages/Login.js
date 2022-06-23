@@ -24,11 +24,16 @@ function Login() {
       .then((res) => {
         alert(res.data.message);
         console.log(res);
-        const token = res.data.token;
-        dispatch(userActions.login(token));
+        const data= {
+          token : res.data.token,
+          id : res.data.userId
+        }
+        dispatch(userActions.login(data));
         // navigate("/");
       })
       .catch((err) => console.log(err));
+    // dispatch(userActions.login());
+    // navigate('/');
   };
   return (
     <>

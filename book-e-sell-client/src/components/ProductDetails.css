@@ -46,7 +46,9 @@
 }
 
 .product-Author,
-.product-summary {
+.product-summary,
+.product-price
+ {
     padding-bottom: 10px;
 }
 
@@ -55,7 +57,7 @@
     background-color: #cac9c957;
 }
 
-.seller-info {
+.seller-info span{
     padding-bottom: 10px;
 }
 

@@ -4,6 +4,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Order = require('../models/order');
 const Book = require('../models/book');
+const User = require('../models/user');
 
 // GET ALL ORDERS
 router.get('/', async(req, res, next) => {
@@ -16,7 +17,8 @@ router.get('/', async(req, res, next) => {
                     return {
                         book: order.product, // affect here
                         _id: order._id,
-                        quantity: order.quantity
+                        quantity: order.quantity,
+                        user:order.user
                     }
                 }),
                 request: {
@@ -32,6 +34,7 @@ router.get('/', async(req, res, next) => {
 
 // ADD ORDER
 router.post('/', async(req, res, next) => {
+    console.log(User.findById(req.body.userId));
     await Book.findById(req.body.productId).then(book => {
             if (!book) {
                 return res.status(404).json({
@@ -41,7 +44,8 @@ router.post('/', async(req, res, next) => {
             const order = new Order({
                 _id: mongoose.Types.ObjectId(),
                 quantity: req.body.quantity,
-                product: req.body.productId
+                product: req.body.productId,
+                user: req.body.userId
             });
             order.save();
         })

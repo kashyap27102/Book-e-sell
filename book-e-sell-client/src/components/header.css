@@ -1,0 +1,9 @@
+.cart-box{
+    display: inline-flex;
+    background-color: white;
+    width: 100px;
+    padding: 2px 5px;
+    border: 2px solid #f14d54;
+    border-radius: 5px;
+    align-items: center;
+}

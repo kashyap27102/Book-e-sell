@@ -1,0 +1,91 @@
+.wrapper{
+    display: flex;
+    height: 600px;
+}
+.left-sidebar{
+    flex: 1;
+    width: 250px;
+    background-color: rgb(243, 242, 242);
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.sidebar-item{
+    padding: 10px;
+    font-size: large;
+}
+.sidebar-item:hover{
+    background-color: #414141;
+    color: white;
+}
+.right-sidebar{
+    margin-left: 20px;
+    padding: 30px;
+    flex: 3;
+    width: 700px;
+    background-color: rgb(243, 242, 242);
+    overflow-y: auto;
+}
+.account-title{
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #414141;
+    margin: 20px 20px;
+}
+/* -------------------------ORDERHISTORY COMPONENT-------------------- */
+.order-card{
+    border: 1px solid #414141;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.order-header{
+    padding: 10px;
+    background-color: lightgray;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+.order-body{
+    display: flex;
+    padding: 10px;
+    margin-top: 20px;
+}
+.order-footer{
+    margin-top: 20px;
+    text-align: end;
+    padding: 10px 20px;
+    font-weight: 500;
+    background-color: rgb(238, 238, 238);
+}
+.order-card-first{
+    flex: 1;
+}
+.order-card-third{
+    text-align: end;
+}
+.order-card-second, .order-card-third{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.order-img-wrapper{
+    height: 100px;
+}
+.orderimg{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.order-button{
+    width: 50%;
+    padding: 7px;
+    margin: auto;
+    align-self: center;
+    background-color: #f14d54;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}

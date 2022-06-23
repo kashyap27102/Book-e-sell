@@ -3,6 +3,7 @@
     margin: 0px;
     padding: 0px;
     font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
 }
 
 p,
@@ -10,13 +11,16 @@ ul,
 li {
     display: inline-block;
 }
-
+a, .link{
+    text-decoration: none;
+    color: black
+}
 input {
     padding-left: 10px;
 }
 
 .container {
-    max-width: 1200px;
+    width: 1200px;
     margin: auto;
 }
 
@@ -42,4 +46,9 @@ input {
     margin-bottom: 30px;
     width: 50%;
     height: 30px;
+}
+.textarea{
+    display: block;
+    margin-bottom: 30px;
+    width: 50%;
 }

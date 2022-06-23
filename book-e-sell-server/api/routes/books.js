@@ -35,7 +35,7 @@ const User = require('../models/user');
 // GET ALL BOOKS
 router.get('/', async(req, res, next) => {
     try {
-        const books = await Book.find().select('_id title Auther price productImg').populate('user', 'firstName lastName email mobileNo');
+        const books = await Book.find().select('_id title Auther price AuthorName productImg').populate('user', 'firstName lastName email mobileNo');
         res.status(200).json({
             count: books.length,
             books: books.map(book => {
@@ -44,6 +44,7 @@ router.get('/', async(req, res, next) => {
                     price: book.price,
                     id: book._id,
                     user: book.user,
+                    AuthorName: book.AuthorName,
                     productImg: 'http://localhost:8000/' + book.productImg,
                     request: 'GET',
                     url: 'http://localhost:8000/products'
@@ -67,7 +68,8 @@ router.post('/:id', upload.single('productImg'), async(req, res, next) => {
             AuthorName: req.body.AuthorName,
             user: req.params.id,
             price: req.body.price,
-            productImg: req.file.path
+            productImg: req.file.path,
+            desc:req.body.desc
         })
         book.save().then((result) => {
             console.log(result)
@@ -78,7 +80,7 @@ router.post('/:id', upload.single('productImg'), async(req, res, next) => {
                     book: book,
                     request: {
                         type: 'POST',
-                        url: 'http://localhost:8000/products'
+                        url: 'http://localhost:8000/books'
                     }
                 })
             })
@@ -96,12 +98,14 @@ router.get('/:id', async(req, res, next) => {
             res.status(200).json({
                 book: {
                     id: book._id,
-                    title: book.name,
+                    title: book.title,
                     AuthorName: book.AuthorName,
+                    desc:book.desc,
                     price: book.price,
+                    productImg: 'http://localhost:8000/' + book.productImg,
                     seller: book.user,
                     request: 'GET',
-                    url: 'http://localhost:8000/products/' + book._id
+                    url: 'http://localhost:8000/books/' + book._id
                 }
             });
         else

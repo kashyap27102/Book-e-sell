@@ -3,10 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const bookSlice = createSlice({
     name: 'book',
     initialState: {
-        books: [],
-        totalBooks: 0
+        books: {},
     },
     reducers: {
+        addBooks(state,action){
+            state.books = action.payload;
+        },
         viewAllBooks(state, action) {
             state.books = action.payload;
         },

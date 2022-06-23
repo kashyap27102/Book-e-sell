@@ -5,28 +5,59 @@
     display: flex;
     align-items: center;
     background-color: rgb(243, 242, 242);
-    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
     top: 0%;
     position: fixed;
 }
-
-.logo-wrapper {
+.navbar-container{
+    display: flex;
+    width: 1260px;
+    margin: auto;
+}
+.navbar-left {
     flex: 5;
-    margin-left: 70px;
+    /* margin-left: 70px; */
 }
 
 .logo {
     color: #f14d54;
     /* padding-left: 70px; */
 }
-
-.authenticateArea {
+.navbar-right {
     flex: 5;
     display: flex;
-    text-align: end;
     align-items: center;
+    justify-content: end;
 }
-
+.nav-item{
+    margin: 0px 10px;
+    align-self: center;
+}
+.drop-down{
+    background-color: rgb(243, 242, 242);
+    padding: 10px 10px;
+    width: 170px;
+    border-radius: 5px;
+    position: absolute;
+    top:100%;
+    right:11%;
+    -webkit-box-shadow: 4px -2px 16px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px -2px 16px -11px rgba(0,0,0,0.75);
+    box-shadow: 4px -2px 16px -11px rgba(0,0,0,0.75);
+}
+.dorpdown-item{
+    font-size: large;
+    margin: 5px 0px;
+    cursor: pointer;
+    width: 100%;
+    padding-left: 5px;
+}
+.dorpdown-item:hover{
+    background-color: #f14d54;
+    color: white;
+    border-radius: 5px;
+}
+/* 
 .left-wrap {
     flex: 1;
     text-align: end;
@@ -37,7 +68,7 @@
     text-align: center;
     cursor: pointer;
     margin-right: 70px;
-}
+} */
 
 .navbarLogin {
     font: 20px;
@@ -63,7 +94,6 @@
     background-color: white;
     border: 1px solid #f14d54;
     border-radius: 5px;
-    width: 95px;
     padding: 5px 5px;
     margin: auto;
     display: flex;
@@ -73,8 +103,10 @@
 .icon {
     color: #f14d54;
     flex: 1;
+    font-size: 30px;
 }
 
 .cartItemCount {
-    flex: 2;
+    flex: 1;
+    text-align: center;
 }
