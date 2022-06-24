@@ -24,7 +24,9 @@ function Topbar() {
               <h2 className="logo">E-BOOK STORE</h2>
             </Link>
           </div>
-          {/* <Serchbar/> */}
+          <div className="navbar-center">
+            <Serchbar />
+          </div>
           <div className="navbar-right">
             {!isLoggedIn && (
               <>
@@ -66,7 +68,6 @@ function Topbar() {
                 {open && (
                   <div className="drop-down">
                     <ui className="dropdown-items">
-                      
                       <Link to="/orders" className="link">
                         <li className="dorpdown-item">Your Orders</li>
                       </Link>

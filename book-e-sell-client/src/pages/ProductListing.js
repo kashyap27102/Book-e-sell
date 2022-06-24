@@ -3,21 +3,18 @@ import "./ProductListing.css";
 import Topbar from "../components/Topbar";
 import Product from "../components/Product";
 import { useDispatch, useSelector } from "react-redux";
-import { Books } from "../data/Books";
 import { bookActions } from "../Store/book-slice";
 import axios from "axios";
 
 function ProductListing() {
   const [fetch, isFetched] = useState(false);
   const dispatch = useDispatch();
-  const [booksdata,setbooksData] = useState({});
+  const books = useSelector((state) => state.book.books);
   useEffect(() => {
     const FetchData = async () => {
       await axios
         .get("/books")
         .then((res) => {
-          console.log(res);
-          setbooksData(res.data);
           dispatch(bookActions.addBooks(res.data.books));
           isFetched(true);
         })
@@ -25,7 +22,6 @@ function ProductListing() {
     };
     FetchData();
   }, []);
-  console.log(booksdata);
   return (
     <>
       <Topbar />
@@ -35,7 +31,9 @@ function ProductListing() {
           <>
             <div className="product-info-wrapper">
               <div className="product-info-left">
-                <h3 className="itemCount">Total Books - {booksdata.count} Items</h3>
+                <h3 className="itemCount">
+                  Total Books - {books.length} Items
+                </h3>
               </div>
               <div className="product-info-right">
                 <span>Sort By</span>
@@ -46,10 +44,15 @@ function ProductListing() {
               </div>
             </div>
             <div className="product-container">
-              {booksdata.books.map((book) => (
-                <Product key={book.id} book={book} />
-              ))}
+              {books.length == 0 ? (
+                <div className="no-item-found">
+                  <h3>NO BOOKS FOUND</h3>
+                </div>
+              ) : (
+                books.map((book) => <Product key={book.id} book={book} />)
+              )}
             </div>
+
             {/* <div className="pagination-navbar">
                     <ul className="pagination">
                         <li className="page-item arrow">

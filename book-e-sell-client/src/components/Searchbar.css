@@ -1,23 +1,32 @@
 .searchbar-wrapper {
-    display: flex;
-    height: 80px;
+    /* display: flex; */
     /* background-color: #e2e2e2; */
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .serachBox {
-    width: 422px;
+    display: inline-block;
+    width: 600px;
     height: 40px;
     padding-left: 10px;
     font-style: italic;
     border: 1px solid rgb(180, 179, 179);
     background-color: white;
     border-radius: 5px;
-    margin: 10px;
+    /* margin: 10px; */
     cursor: pointer;
 }
-
+.searchResults{
+    position: absolute;
+    background-color: white;
+    width: 600px;
+    padding: 10px;
+    -webkit-box-shadow: 4px -2px 16px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px -2px 16px -11px rgba(0,0,0,0.75);
+    box-shadow: 4px -2px 16px -11px rgba(0,0,0,0.75);
+}
 .searchbtn {
     background-color: #80bf32;
     height: 40px;
@@ -42,4 +51,29 @@
     border: none;
     color: white;
     cursor: pointer;
+}
+.bookContainer{
+    display: flex;
+    padding: 10px;
+}
+.bookContainer:hover{
+    background-color:#ede9e9;
+}
+
+.bookContainer .left {
+    flex: 70%;
+}
+.bookContainer .right {
+    text-align: end;
+    flex: 30%;
+}
+.bookContainer p{
+    display: block;
+}
+.addFromSearch{
+    color: #f14d54;
+    cursor: pointer;
+}
+.addFromSearch:hover{
+    color: #b11b23;
 }

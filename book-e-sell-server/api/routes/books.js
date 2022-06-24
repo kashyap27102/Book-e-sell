@@ -58,6 +58,38 @@ router.get('/', async(req, res, next) => {
 
 });
 
+// SEARCH API
+router.get('/search',async(req,res,next)=>{
+    console.log(req.query.q);
+    res.json({message:req.query.q});
+    // try{
+    //     const books = await Book.find(
+    //         {"title" : {$regx:req.params.query,$options:'$1'}}
+    //         )
+    //     // .select('_id title Auther price AuthorName');
+    //     res.json(books);
+    //     // res.status(200).json({
+    //     //     count: books.length,
+    //     //     books: books.map(book => {
+    //     //         return {
+    //     //             title: book.title,
+    //     //             price: book.price,
+    //     //             id: book._id,
+    //     //             user: book.user,
+    //     //             AuthorName: book.AuthorName,
+    //     //             productImg: 'http://localhost:8000/' + book.productImg,
+    //     //             request: 'GET',
+    //     //             url: `http://localhost:8000/q:${query}`
+    //     //         }
+    //     //     })
+    //     // })
+    // }catch(err){
+    //     console.log(err);
+    //     res.status(404).json(err);
+    // }
+    
+});
+
 // SELL BOOK
 router.post('/:id', upload.single('productImg'), async(req, res, next) => {
     console.log(req.file);
