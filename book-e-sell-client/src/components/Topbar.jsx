@@ -24,20 +24,20 @@ function Topbar() {
               <h2 className="logo">E-BOOK STORE</h2>
             </Link>
           </div>
-          <div className="navbar-center">
+          {isLoggedIn && <div className="navbar-center">
             <Serchbar />
-          </div>
+          </div>}
           <div className="navbar-right">
             {!isLoggedIn && (
               <>
                 <div className="nav-item">
                   <Link to="/login">
-                    <span>Login</span>
+                    <span id="login-link">Login</span>
                   </Link>
                 </div>
                 <div className="nav-item">
                   <Link to="/register">
-                    <span>Register</span>
+                    <span id="register-link">Register</span>
                   </Link>
                 </div>
               </>

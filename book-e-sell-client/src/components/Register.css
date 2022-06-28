@@ -31,11 +31,10 @@
     margin-bottom: 15px;
 }
 
-.r-inputfield {
+.register-details-wrapper input{
     display: inline-block;
     width: 100%;
     margin-bottom: 30px;
-    height: 30px;
 }
 
 .password {
@@ -51,13 +50,12 @@
 }
 
 .registerbtn {
-    background-color: #f14d54;
-    width: 100px;
-    height: 45px;
-    border: none;
-    color: white;
-    font-size: large;
-    padding: 10px;
-    cursor: pointer;
-    margin-bottom: 20px;
+    width: 150px;
+}
+.error-message{
+    margin-bottom: 10px;
+}
+.error-message span{
+    color: red;
+    font-style: italic;
 }

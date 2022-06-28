@@ -7,6 +7,7 @@
     background-color: #FFA8A8;
     border-radius: 5px;
     text-align: center;
+    margin-top: 45px;
 }
 .cart-details-wrapper {
     display: flex;
@@ -16,6 +17,7 @@
     color: #414141;
     font-weight: 500;
     margin-bottom: 30px;
+    margin-top: 45px;
 }
 
 .cart-details-left {
@@ -108,13 +110,12 @@
 }
 
 .place-order-button {
-    background-color: #f14d54;
     height: 40px;
     width: 200px;
     font-size: 16px;
     padding: 5px;
     border-radius: 2px;
-    border: none;
-    color: white;
+}
+.deletebtn{
     cursor: pointer;
 }

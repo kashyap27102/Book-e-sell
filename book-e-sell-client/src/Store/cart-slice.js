@@ -42,6 +42,14 @@ const cartSlice = createSlice({
       state.totalItem -= 1;
       state.totalAmount -= action.payload.item.price;
     },
+    deleteItem(state,action){
+      state.items.map((order) => {
+        if (order.id === action.payload.id)
+          state.items = state.items.filter((o) => o.id != order.id);
+      });
+      state.totalItem -= action.payload.quantity;
+      state.totalAmount -= action.payload.quantity*action.payload.item.price;
+    },
     checkOut(state,actions){
         state.items = [];
         state.totalItem = 0;

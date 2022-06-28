@@ -1,18 +1,14 @@
 import React, { useRef } from "react";
-import Topbar from "../components/Topbar";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { userActions } from "../Store/user-slice";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
   const email = useRef();
   const password = useRef();
-  let navigate = useNavigate();
   const dispatch = useDispatch();
-  const userToken = useSelector((state) => state.user.token);
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const submithandler = async (e) => {
     e.preventDefault();
     const user = {
@@ -29,18 +25,13 @@ function Login() {
           id : res.data.userId
         }
         dispatch(userActions.login(data));
-        // navigate("/");
       })
       .catch((err) => console.log(err));
-    // dispatch(userActions.login());
-    // navigate('/');
   };
   return (
     <>
-      <Topbar />
       <div className="container">
-        <h2 className="pageTitle">Login</h2>
-        <div className="line"></div>
+        {/* <h2 className="pageTitle">Login</h2> */}
         <div className="box">
           <div className="left">
             <h3 className="title">New Customer</h3>
@@ -51,7 +42,7 @@ function Login() {
               <li className="listItem">Save Multiple shipping address</li>
               <li className="listItem">view and track orders and more</li>
             </ul>
-            <button className="createAccountBtn">Create an Account</button>
+            <Link to="/register"><button className="createAccountBtn">Create an Account</button></Link>
           </div>
           <div className="right">
             <h3 className="title">Registerd Customers</h3>

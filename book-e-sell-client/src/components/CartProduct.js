@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../Store/cart-slice";
+
 function CartProduct({ order }) {
   console.log(order);
   const dispatch = useDispatch();
@@ -33,7 +33,9 @@ function CartProduct({ order }) {
             <del className="realPrice">{order.item.price/0.8}</del>
             <span className="disscount">20% off</span>
           </div>
-          <DeleteIcon className="deletebtn" />
+          <DeleteIcon className="deletebtn" onClick={()=>{
+            dispatch(cartActions.deleteItem(order));
+          }}/>
         </div>
       </div>
     </div>

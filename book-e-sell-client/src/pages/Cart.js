@@ -15,7 +15,6 @@ function Cart() {
   const onclickHandler = () => {
     setIsOpen(true);
     items.map(async(item)=>{
-      // console.log(item);
       const data = {
         productId : item.item.id,
         quantity : item.quantity,
@@ -31,9 +30,7 @@ function Cart() {
 
   return (
     <>
-      <Topbar />
       <div className="container">
-        <h2 className="pageTitle">Cart</h2>
         {totalItem == 0 && (
           <div className="no-item-found">
             <h3>YOUR CART IS EMPTY</h3>

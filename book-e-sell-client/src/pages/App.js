@@ -15,12 +15,14 @@ import { useSelector } from "react-redux";
 import Orders from "../components/Orders";
 import EditProfile from "./EditProfile";
 import Sellbook from "./Sellbook";
+import Topbar from "../components/Topbar";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   return (
     <Router>
-      <div className="App"></div>
+      <div className="main-container"></div>
+      <Topbar/>
       <Routes>
         <Route
           path="/login"

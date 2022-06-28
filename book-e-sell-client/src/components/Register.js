@@ -1,43 +1,46 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Register.css";
-import Topbar from "./Topbar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// conform password implementation is panding 
+
 function Register() {
-    let navigate = useNavigate();
-    const firstname = useRef();
-    const lastname = useRef();
-    const email = useRef();
-    const mobile = useRef();
-    const password = useRef();
-    const conformpassword = useRef();
-    const submithandler = async (e) => {
-        e.preventDefault();
-        const user = {
-            firstName: firstname.current.value,
-            lastName: lastname.current.value,
-            email: email.current.value,
-            mobileNo: mobile.current.value,
-            password: password.current.value,
-        };
-        console.log(user)
-        await axios
+  let navigate = useNavigate();
+  const [error, setError] = useState(false);
+  const firstname = useRef();
+  const lastname = useRef();
+  const email = useRef();
+  const mobile = useRef();
+  const password = useRef();
+  const conformpassword = useRef();
+
+  const submithandler = async (e) => {
+    e.preventDefault();
+    if (password.current.value !== conformpassword.current.value)
+      setError(true);
+    else {
+      const user = {
+        firstName: firstname.current.value,
+        lastName: lastname.current.value,
+        email: email.current.value,
+        mobileNo: mobile.current.value,
+        password: password.current.value,
+      };
+      console.log(user);
+      await axios
         .post("/auth/signup", user)
         .then((res) => {
-            console.log(res);
-            alert("New User Created");
-            navigate('/login');
+          console.log(res);
+          alert("New User Created");
+          navigate("/login");
         })
         .catch((err) => {
-            console.log(err);
+          console.log(err);
         });
+    }
   };
   return (
     <>
-      <Topbar />
       <div className="container">
-        <h2 className="pageTitle">Create Account</h2>
         <form className="register-details-wrapper" onSubmit={submithandler}>
           <div className="personalInfo">
             <h3 className="title">Personal Information</h3>
@@ -50,59 +53,37 @@ function Register() {
                 <label htmlFor="firstname" className="inputlabel">
                   First Name*
                 </label>
-                <input
-                  type="text"
-                  id="firstname"
-                  className="r-inputfield"
-                  ref={firstname}
-                />
+                <input type="text" id="firstname" ref={firstname} required />
               </div>
               <div style={{ flex: "0.5" }}></div>
               <div className="name-right">
                 <label htmlFor="lastname" className="inputlabel">
                   Last Name*
                 </label>
-                <input
-                  type="text"
-                  id="lastname"
-                  className="r-inputfield"
-                  ref={lastname}
-                />
+                <input type="text" id="lastname" ref={lastname} required />
               </div>
             </div>
             <label htmlFor="email" className="inputlabel">
               Email Address*
             </label>
-            <input
-              type="email"
-              id="email"
-              className="r-inputfield"
-              ref={email}
-            />
+            <input type="email" id="email" ref={email} required />
             <label htmlFor="mobile" className="inputlabel">
               Mobile No*
             </label>
-            <input
-              type="mobile"
-              id="mobile"
-              className="r-inputfield"
-              ref={mobile}
-            />
+            <input type="mobile" id="mobile" ref={mobile} required />
           </div>
+          {error && (
+            <div className="error-message">
+              <span>* Password and Conform Password is not same</span>
+            </div>
+          )}
           <div className="loginInfo">
-            <h3 className="title">Login Information</h3>
-            <hr className="r-hr" />
             <div className="password">
               <div className="pass-left">
                 <label htmlFor="password" className="inputlabel">
                   Password*
                 </label>
-                <input
-                  type="text"
-                  id="password"
-                  className="r-inputfield"
-                  ref={password}
-                />
+                <input type="text" id="password" ref={password} required />
               </div>
               <div style={{ flex: "0.5" }}></div>
               <div className="pass-right">
@@ -110,10 +91,10 @@ function Register() {
                   Conform Password*
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   id="conformpass"
-                  className="r-inputfield"
                   ref={conformpassword}
+                  required
                 />
               </div>
             </div>

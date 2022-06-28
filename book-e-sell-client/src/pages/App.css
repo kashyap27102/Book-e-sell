@@ -17,6 +17,27 @@ a, .link{
 }
 input {
     padding-left: 10px;
+    height: 30px;
+}
+button{
+    background-color: #f14d54;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+}
+
+button:active{
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+/* ----------------- CLASSES ---------------- */
+
+.main-container {
+    
 }
 
 .container {
@@ -27,9 +48,10 @@ input {
 .pageTitle {
     color: #414141;
     font-size: 32px;
-    margin-top: calc(60px + 50px);
+    margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
+    position: relative;
 }
 
 .pageTitle::after {

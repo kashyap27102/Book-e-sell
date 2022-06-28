@@ -19,7 +19,7 @@ const bookSchema = mongoose.Schema({
         required: true
     },
     productImg: {
-        type: String, // because its url
+        type: String, 
         required: true
     },
     desc:{

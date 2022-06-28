@@ -24,9 +24,8 @@ function ProductListing() {
   }, []);
   return (
     <>
-      <Topbar />
       <div className="container">
-        <h2 className="pageTitle">All Books</h2>
+        {/* <h2 className="pageTitle">All Books</h2> */}
         {fetch && (
           <>
             <div className="product-info-wrapper">

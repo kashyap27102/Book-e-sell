@@ -80,7 +80,7 @@ router.delete('/:id', async(req, res, next) => {
     })
 })
 
-// Quentity Update
+// Quantity Update
 router.put('/:id', async(req, res, next) => {
     await Order.findByIdAndUpdate(req.params.id, { $set: req.body }).then(result => {
         res.status(200).json({

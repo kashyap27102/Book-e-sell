@@ -35,7 +35,6 @@ function Sellbook() {
   };
   return (
     <>
-      <Topbar />
       <form className="container" onSubmit={submitHandler} encType="multipart/form-data">
         <h2 className="pageTitle">ADD BOOK</h2>
         <div className="edit-profile-wrapper">

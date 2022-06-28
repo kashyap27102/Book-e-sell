@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
-import Topbar from "./Topbar";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -22,7 +21,6 @@ function ProductDetails() {
   }, []);
   return (
     <div className="product-details-container">
-      <Topbar user="kashyap" />
       {(<div className="Product-Details-Wrapper">
         <div className="Product-Details-Wrapper-Left">
           <div className="product-details-image-wrapper">

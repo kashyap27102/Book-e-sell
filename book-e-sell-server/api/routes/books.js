@@ -47,7 +47,7 @@ router.get('/', async(req, res, next) => {
                     AuthorName: book.AuthorName,
                     productImg: 'http://localhost:8000/' + book.productImg,
                     request: 'GET',
-                    url: 'http://localhost:8000/products'
+                    url: 'http://localhost:8000/books'
                 }
             })
         });
@@ -56,38 +56,6 @@ router.get('/', async(req, res, next) => {
         res.status(404).json(err);
     }
 
-});
-
-// SEARCH API
-router.get('/search',async(req,res,next)=>{
-    console.log(req.query.q);
-    res.json({message:req.query.q});
-    // try{
-    //     const books = await Book.find(
-    //         {"title" : {$regx:req.params.query,$options:'$1'}}
-    //         )
-    //     // .select('_id title Auther price AuthorName');
-    //     res.json(books);
-    //     // res.status(200).json({
-    //     //     count: books.length,
-    //     //     books: books.map(book => {
-    //     //         return {
-    //     //             title: book.title,
-    //     //             price: book.price,
-    //     //             id: book._id,
-    //     //             user: book.user,
-    //     //             AuthorName: book.AuthorName,
-    //     //             productImg: 'http://localhost:8000/' + book.productImg,
-    //     //             request: 'GET',
-    //     //             url: `http://localhost:8000/q:${query}`
-    //     //         }
-    //     //     })
-    //     // })
-    // }catch(err){
-    //     console.log(err);
-    //     res.status(404).json(err);
-    // }
-    
 });
 
 // SELL BOOK
@@ -112,7 +80,7 @@ router.post('/:id', upload.single('productImg'), async(req, res, next) => {
                     book: book,
                     request: {
                         type: 'POST',
-                        url: 'http://localhost:8000/books'
+                        url: `http://localhost:8000/books/${req.params.id}`
                     }
                 })
             })
@@ -170,7 +138,7 @@ router.delete('/:id', async(req, res, next) => {
         res.status(200).json({
             message: 'product deleted successfullly',
             request: 'DELETE',
-            url: 'http://localhost:8000/products' + req.params.id
+            url: 'http://localhost:8000/books' + req.params.id
         })
     } catch (err) {
         console.log(err);

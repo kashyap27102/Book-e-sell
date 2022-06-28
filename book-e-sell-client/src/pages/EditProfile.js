@@ -20,7 +20,6 @@ const EditProfile = () => {
 
   return (
     <>
-      <Topbar />
       <div className="container">
         <h2 className="pageTitle">EDIT PROFILE</h2>
         {user && (<div className="edit-profile-wrapper">
