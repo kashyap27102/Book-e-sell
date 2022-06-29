@@ -71,8 +71,8 @@ router.post('/login', async(req, res, next) => {
                         userId: user._id
                     })
                 }
-                res.status(404).json({
-                    message: 'Auth Failed'
+                return res.status(401).json({
+                    message: 'Username and Password is not matched'
                 })
 
             })

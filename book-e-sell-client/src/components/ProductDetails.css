@@ -1,7 +1,9 @@
 .product-details-container {
     display: flex;
-    height: 100vh;
+    margin-top: 60px;
+    
 }
+
 
 .Product-Details-Wrapper {
     display: flex;
@@ -20,9 +22,13 @@
 
 .Product-Details-Wrapper-Right {
     flex: 1;
-    margin: 50px 20px;
+    margin: 20px 20px;
     display: flex;
     flex-direction: column;
+    font-size: 18px;
+}
+.Product-Details-Wrapper-Right span{
+    font-family: 'Anek Malayalam';
 }
 
 .product-details-image-wrapper {
@@ -35,13 +41,14 @@
 .product-details-img {
     flex: 1;
     align-self: center;
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
 .product-details-title {
-    font: 30px;
+    font-family: 'Anek Malayalam';
+    font-size: 30px;
     padding-bottom: 10px;
 }
 
@@ -50,6 +57,12 @@
 .product-price
  {
     padding-bottom: 10px;
+    font-family: 'Anek Malayalam';
+}
+.product-summary {
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: wrap;
 }
 
 .seller-details-wrapper {
@@ -58,6 +71,7 @@
 }
 
 .seller-info span{
+    font-family: 'Anek Malayalam';
     padding-bottom: 10px;
 }
 

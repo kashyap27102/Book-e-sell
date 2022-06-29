@@ -52,10 +52,3 @@
 .registerbtn {
     width: 150px;
 }
-.error-message{
-    margin-bottom: 10px;
-}
-.error-message span{
-    color: red;
-    font-style: italic;
-}

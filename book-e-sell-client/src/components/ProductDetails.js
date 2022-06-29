@@ -1,12 +1,16 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { cartActions } from "../Store/cart-slice";
 import "./ProductDetails.css";
+import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from "react-redux";
 
 function ProductDetails() {
   const { id } = useParams();
   const [book, setBook] = useState({});
   const [seller, setSeller] = useState({});
+  const dispatch = useDispatch();
   useEffect(() => {
     const FetchData = async () => {
       await axios
@@ -19,6 +23,16 @@ function ProductDetails() {
     };
     FetchData();
   }, []);
+
+  const addtocartHandler = () => {
+    const neworder = {
+      id:uuidv4(), 
+      item : book,
+      quantity : 1,
+  }
+  dispatch(cartActions.addItem(neworder));
+  }
+
   return (
     <div className="product-details-container">
       {(<div className="Product-Details-Wrapper">
@@ -49,7 +63,7 @@ function ProductDetails() {
             <span style={{ display : 'block',color: "gray" }}>Mobile : {seller.mobileNo}</span>
           </div>
           <div className="product-details-addtocartbtn-wrapper">
-            <button className="product-details-addtocartbtn">
+            <button onClick={addtocartHandler} className="product-details-addtocartbtn">
               ADD TO CART
             </button>
           </div>

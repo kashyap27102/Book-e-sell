@@ -15,8 +15,9 @@
 }
 
 .itemCount {
+    font-family: 'Anek Malayalam';
     color: #414141;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
 }
 
@@ -86,12 +87,16 @@
 .productTitle {
     margin-bottom: 5px;
     color: #181818;
-    font-size: 20px;
-    font-weight: 600;
-    height: 75px;
+    font-size: 22px;
+    font-family: 'Anek Malayalam';
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .authorName {
+    font-family: 'Anek Malayalam';
     font-size: 20px;
     margin-bottom: 15px;
     font-weight: 300;

@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { userActions } from "../Store/user-slice";
 import { Link } from "react-router-dom";
 import "./Login.css";
@@ -9,6 +9,10 @@ function Login() {
   const email = useRef();
   const password = useRef();
   const dispatch = useDispatch();
+  const [error, setError] = useState(false);
+
+  useEffect(() => {}, [error]);
+
   const submithandler = async (e) => {
     e.preventDefault();
     const user = {
@@ -18,15 +22,17 @@ function Login() {
     await axios
       .post("/auth/login", user)
       .then((res) => {
-        alert(res.data.message);
-        console.log(res);
-        const data= {
-          token : res.data.token,
-          id : res.data.userId
-        }
+        // alert(res.data.message);
+        const data = {
+          token: res.data.token,
+          id: res.data.userId,
+        };
         dispatch(userActions.login(data));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setError(true);
+        console.log(err);
+      });
   };
   return (
     <>
@@ -42,7 +48,9 @@ function Login() {
               <li className="listItem">Save Multiple shipping address</li>
               <li className="listItem">view and track orders and more</li>
             </ul>
-            <Link to="/register"><button className="createAccountBtn">Create an Account</button></Link>
+            <Link to="/register">
+              <button className="createAccountBtn">Create an Account</button>
+            </Link>
           </div>
           <div className="right">
             <h3 className="title">Registerd Customers</h3>
@@ -71,6 +79,11 @@ function Login() {
                 className="inputfield"
                 ref={password}
               />
+              {error && (
+                <div className="error-message">
+                  <span>* Username and Password doesn't match</span>
+                </div>
+              )}
               <button type="submit" className="loginbtn">
                 Login
               </button>
