@@ -12,7 +12,11 @@ function Topbar() {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+
+  console.log(location.pathname);
+
   const logoutHandler = () => {
+    setOpen(false);
     dispatch(userActions.logout());
   };
   return (
@@ -66,24 +70,24 @@ function Topbar() {
                   />
                 </div>
                 {open && (
-                  <div className="drop-down">
-                    <ui className="dropdown-items">
-                      <Link to="/orders" className="link">
-                        <li className="dorpdown-item">Your Orders</li>
+                  <div className="drop-down"  >
+                    <ul className="dropdown-items" >
+                      <Link to="/orders" className="link" >
+                        <li className="dropdown-item" onClick={()=>{setOpen(false)}}>Your Orders</li>
                       </Link>
                       <hr />
                       <Link to="/sell-book" className="link">
-                        <li className="dorpdown-item">Sell Book</li>
+                        <li className="dropdown-item" onClick={()=>{setOpen(false)}}>Sell Book</li>
                       </Link>
                       <hr />
                       <Link to="/edit-profile">
-                        <li className="dorpdown-item">Edit Profile</li>
+                        <li className="dropdown-item" onClick={()=>{setOpen(false)}}>Edit Profile</li>
                       </Link>
                       <hr />
-                      <li className="dorpdown-item" onClick={logoutHandler}>
+                      <li className="dropdown-item" onClick={logoutHandler}>
                         Logout
                       </li>
-                    </ui>
+                    </ul>
                   </div>
                 )}
               </>
@@ -96,37 +100,3 @@ function Topbar() {
 }
 
 export default Topbar;
-
-{
-  /* <div className="left-wrap">
-            {isLoggedIn ? (
-              <span onClick={logoutHandler} className="navbarLogin">
-                Logout
-              </span>
-            ) : (
-              <>
-                <Link to="/login" style={{ textDecoration: "none" }}>
-                  <span className="navbarLogin">Login</span>
-                </Link>
-                <div className="vl"></div>
-                <Link to="/register" style={{ textDecoration: "none" }}>
-                  <span className="navbarRegister">Register</span>
-                </Link>
-              </>
-            )}
-          </div>
-          <div className="right-wrap">
-            {isLoggedIn && (
-              <>
-                <Link to="/cart" style={{ textDecoration: "none" }}>
-                  <div className="icon-wrapper">
-                    <ShoppingCartIcon className="icon" />
-                    <span className="cartItemCount">
-                      <span>{totalCartItem}</span> Cart
-                    </span>
-                  </div>
-                </Link>
-              </>
-            )}
-          </div> */
-}

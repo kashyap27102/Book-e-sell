@@ -6,11 +6,23 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
+// UPDATE USER
+router.put('/:id',async(req,res)=>{
+    await User.findByIdAndUpdate(req.params.id, { $set: req.body }).then(user=>{
+        res.status(200).json({
+            message: 'User Updated Successfully',
+            user:user
+        })
+    }).catch(err => {
+        res.status(500).json(err);
+    })
+})
+
 // DELETE USER 
 router.delete('/:id', async(req, res, next) => {
     await User.findByIdAndDelete(req.params.id).then(user => {
         res.status(200).json({
-            message: 'User Deleted Successfully',
+            message: 'User Deleted Successfully'
         })
     }).catch(err => {
         res.status(500).json(err);

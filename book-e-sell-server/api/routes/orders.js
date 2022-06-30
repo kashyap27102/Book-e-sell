@@ -9,7 +9,7 @@ const User = require('../models/user');
 // GET ALL ORDERS
 router.get('/', async(req, res, next) => {
     await Order.find()
-        .populate('product', 'title') // to see the details of full product
+        .populate('product', 'title AuthorName price productImg createdAt') // to see the details of full product
         .then(orders => {
             res.status(200).json({
                 count: orders.length,
@@ -18,7 +18,8 @@ router.get('/', async(req, res, next) => {
                         book: order.product, // affect here
                         _id: order._id,
                         quantity: order.quantity,
-                        user:order.user
+                        user:order.user,
+                        orderDate: order.createdAt
                     }
                 }),
                 request: {
@@ -51,13 +52,17 @@ router.post('/', async(req, res, next) => {
         })
         .then(result => {
             console.log(result);
-            res.status(200).json({
-                message: "order added sucessfully",
-                request: {
-                    type: "POST",
-                    url: "https://localhost:8000/orders"
-                },
+            const user = User.findById(req.body.userId);
+            user.updateOne({ $push: { buyBooks: req.body.productId } }).then(() => {
+                res.status(200).json({
+                    message: "order added sucessfully",
+                    request: {
+                        type: "POST",
+                        url: "https://localhost:8000/orders"
+                    },
+                })
             })
+            
         }).catch(err => {
             console.log(err);
             res.json(500).json(err);

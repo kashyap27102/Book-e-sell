@@ -43,7 +43,6 @@
 .drop-down{
     background-color: rgb(243, 242, 242);
     padding: 10px 10px;
-    width: 170px;
     border-radius: 5px;
     position: absolute;
     top:115%;
@@ -52,14 +51,15 @@
     -moz-box-shadow: 4px -2px 16px -11px rgba(0,0,0,0.75);
     box-shadow: 4px 2px 16px -11px rgba(0,0,0,0.75);
 }
-.dorpdown-item{
+
+.dropdown-item{
     font-size: large;
     margin: 5px 0px;
     cursor: pointer;
     width: 100%;
-    padding-left: 5px;
+    padding: 0px 20px 0px 5px;
 }
-.dorpdown-item:hover{
+.dropdown-item:hover{
     background-color: #f14d54;
     color: white;
     border-radius: 5px;

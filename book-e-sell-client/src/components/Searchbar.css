@@ -57,8 +57,12 @@
     display: flex;
     padding: 10px;
 }
+.bookContainer:nth-child(odd){
+    background-color: #efefef;
+}
 .bookContainer:hover{
-    background-color:#ede9e9;
+    background-color:#343333;
+    color: white;
 }
 
 .bookContainer .left {
@@ -69,6 +73,8 @@
     flex: 30%;
 }
 .bookContainer p{
+    font-family: 'Anek Malayalam';
+    font-size: 18px;
     display: block;
 }
 .addFromSearch{

@@ -1,40 +1,35 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { cartActions } from "../Store/cart-slice";
 
-const OrderHistory = ({ orders }) => {
-  console.log(orders);
+const OrderHistory = ({ order }) => {
+  console.log(order);
   return (
     <div className="order-card">
       <div className="order-header">
-        <span>ORDER# : {orders.id}</span>
+        <span>ORDER# : {order._id}</span>
         <br />
-        <span>ORDER PLACED : {orders.date}</span>
+        <span>ORDER PLACED : {order.orderDate}</span>
       </div>
-      {orders.items.map((item,index) => {
-        return (
-          <div key={index}>
-            <div className="order-body">
-              <div className="order-card-first">
-                <div className="order-img-wrapper">
-                  <img src={item.item.productImg} alt="" className="orderimg" />
-                </div>
-              </div>
-              <div className="order-card-second">
-                <span>{item.item.title}</span>
-                <span>Price : {item.item.price}</span>
-                <span>Quantity : {item.quantity}</span>
-              </div>
-              <div className="order-card-third">
-                {/* <button className="order-button" onClick={buyBookHandler}>Buy Again</button> */}
-                <span>Amount : {item.item.price} x {item.quantity} = {item.item.price*item.quantity}</span>
-              </div>
-            </div>
+      <div className="order-body">
+        <div className="order-card-first">
+          <div className="order-img-wrapper">
+            <img src={order.book.productImg} alt="" className="orderimg" />
           </div>
-        );
-      })}
+        </div>
+        <div className="order-card-second">
+          <span>{order.book.title}</span>
+          <span>Price : {order.book.price}</span>
+          <span>Quantity : {order.quantity}</span>
+        </div>
+        <div className="order-card-third">
+          {/* <button className="order-button" onClick={buyBookHandler}>Buy Again</button> */}
+          <span>
+            Amount : {order.book.price} x {order.quantity} ={" "}
+            {order.book.price * order.quantity}
+          </span>
+        </div>
+      </div>
       <div className="order-footer">
-        <span>Total Amount : {orders.totalAmount}</span>
+        <span>Total Amount : {order.book.price * order.quantity}</span>
       </div>
     </div>
   );
