@@ -9,7 +9,7 @@ const authRoute = require('./api/routes/auth');
 const port = process.env.PORT || 8000;
 
 // connect database
-mongoose.connect('mongodb+srv://{username}:{password}@cluster0.g1drt.mongodb.net/{databasename}?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://kashyap:%40iam51650@cluster0.g1drt.mongodb.net/{databasename}?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
